@@ -23,8 +23,9 @@ public class DoorBehaviour : MonoBehaviour
     }
     private void ShowNumber() => text.SetText(number.ToString());
     private void OnTriggerEnter2D(Collider2D collision)
-    {
+    {        
         if (!collision.CompareTag("Player") || !canStart) return;
-        DoorManager.Instance.CompareNumber(number);
+        ShowNumber();
+        DoorManager.Instance.CompareNumber(number, type);
     }
 }

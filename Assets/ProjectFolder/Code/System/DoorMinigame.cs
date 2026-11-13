@@ -3,11 +3,12 @@ using UnityEngine;
 [Serializable]
 public class DoorMinigame
 {
+    [HideInInspector] public string name = "MiniGame";
     public int maxNumber;
     public int luckyNumber;
     public GameObject limit;
     public DoorBehaviour[] doors;
-    public void StartMinigame() 
+    public int StartMinigame() 
     {
         luckyNumber = UnityEngine.Random.Range(0, maxNumber);
         int randomDoor = UnityEngine.Random.Range(0, doors.Length);
@@ -23,8 +24,10 @@ public class DoorMinigame
                 continue;
             }
             int randomWrongNumber = GetRandomWrongNumber();
-            doors[i].StartBehaviour(DoorType.Fake, luckyNumber);
+            doors[i].StartBehaviour(DoorType.Fake, randomWrongNumber);
         }
+
+        return luckyNumber;
     }
     private int GetRandomWrongNumber() 
     {
