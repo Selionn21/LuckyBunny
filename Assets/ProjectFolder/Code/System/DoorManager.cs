@@ -11,6 +11,7 @@ public class DoorManager : MonoBehaviour
     [SerializeField] private UnityEvent gameCompleted;
     [SerializeField] private UnityEvent gameFail;
     public event Action<float> UpdateTimeUI;
+    public event Action stopTimeUI;
     private int actualIndex = 0;
     private bool gameover;
     public static DoorManager Instance;
@@ -26,6 +27,7 @@ public class DoorManager : MonoBehaviour
     {
         if (gameover) return;
         gameover = true;
+        stopTimeUI?.Invoke();
         gameFail?.Invoke();
     }
     public void CompareNumber(int number, DoorType type) 
@@ -49,6 +51,7 @@ public class DoorManager : MonoBehaviour
     private void GameCompleted()
     {
         FinishGame();
+        stopTimeUI?.Invoke();
         gameCompleted?.Invoke();
     }
 }
