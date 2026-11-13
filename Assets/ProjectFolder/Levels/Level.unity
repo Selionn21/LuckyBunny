@@ -4709,9 +4709,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1099267106225983270, guid: 2d185f7eec8a0124598d87272405bb3c, type: 3}
+      propertyPath: m_fontSize
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 1099267106225983270, guid: 2d185f7eec8a0124598d87272405bb3c, type: 3}
+      propertyPath: m_margin.z
+      value: -18.37088
+      objectReference: {fileID: 0}
+    - target: {fileID: 1099267106225983270, guid: 2d185f7eec8a0124598d87272405bb3c, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 3685809588872335449, guid: 2d185f7eec8a0124598d87272405bb3c, type: 3}
       propertyPath: m_Name
       value: Main Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4163308269041206370, guid: 2d185f7eec8a0124598d87272405bb3c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -759
+      objectReference: {fileID: 0}
+    - target: {fileID: 4163308269041206370, guid: 2d185f7eec8a0124598d87272405bb3c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 449
       objectReference: {fileID: 0}
     - target: {fileID: 4548956669965292237, guid: 2d185f7eec8a0124598d87272405bb3c, type: 3}
       propertyPath: m_Pivot.x
