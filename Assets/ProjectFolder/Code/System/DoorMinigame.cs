@@ -4,6 +4,7 @@ using UnityEngine;
 public class DoorMinigame
 {
     [HideInInspector] public string name = "MiniGame";
+    public int bonusTime;
     public int maxNumber;
     public int luckyNumber;
     public GameObject limit;
