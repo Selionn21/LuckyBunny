@@ -5,13 +5,24 @@ using UnityEngine;
 public class LevelTime : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
-    private float currentTime;    
+    private float currentTime;
+    private bool canContinue = true;
     private void Awake() => text = GetComponent<TextMeshProUGUI>();
-    private void OnEnable() => DoorManager.Instance.UpdateTimeUI += UpdateTime;
-    private void OnDisable() => DoorManager.Instance.UpdateTimeUI -= UpdateTime;
+    private void OnEnable()
+    {
+        DoorManager.Instance.UpdateTimeUI += UpdateTime;
+        DoorManager.Instance.stopTimeUI += StopUI;
+    }
+    private void OnDisable()
+    {
+        DoorManager.Instance.UpdateTimeUI -= UpdateTime;
+        DoorManager.Instance.stopTimeUI -= StopUI;
+    }
     private void Update() => RunBehaviour();
     private void RunBehaviour() 
     {
+        if (!canContinue) return;
+
         currentTime -= Time.deltaTime;
         currentTime = Mathf.Clamp(currentTime, 0, float.MaxValue);
         text.SetText(currentTime.ToString("F2"));
@@ -23,5 +34,6 @@ public class LevelTime : MonoBehaviour
         if (currentTime <= 0)
             DoorManager.Instance.GameFailed(); // colocar un GameManager para la derrota
     }
+    private void StopUI() => canContinue = false;
     private void UpdateTime(float time) => currentTime += time;
 }
