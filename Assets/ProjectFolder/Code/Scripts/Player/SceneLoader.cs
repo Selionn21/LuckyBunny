@@ -41,4 +41,9 @@ public class SceneLoader : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("Main menu");
+    }
 }

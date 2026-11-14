@@ -29,7 +29,7 @@ public class LevelTime : MonoBehaviour
         if (currentTime <= 10) 
             text.color = Color.red;
         else
-            text.color = Color.black;
+            text.color = new Color32(227, 192, 121, 255);
 
         if (currentTime <= 0)
             DoorManager.Instance.GameFailed(); // colocar un GameManager para la derrota
